@@ -1,0 +1,249 @@
+* {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: Arial, sans-serif;
+    background: #D9D9D9;
+    margin: 0;
+    padding: 40px;
+  }
+  .bracket-container {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* Для плавного скролла на iOS */
+  }
+  .bracket-container::-webkit-scrollbar {
+    height: 15px;
+  }
+  
+  .bracket-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  .bracket-container::-webkit-scrollbar-thumb {
+    background: #611720;
+    border-radius: 10px;
+  }
+  .bracket {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+  }
+  .round {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .r16 img:hover { transform: scale(3); }
+  .r8 img:hover  { transform: scale(2.5);}
+  .qf img:hover  { transform: scale(2); }
+  .sf img:hover  { transform: scale(1.5); }
+  .f img:hover   { transform: scale(1.05); }
+
+
+  .round-title, .title,.sub-title {
+    writing-mode: vertical-lr;  
+    letter-spacing: 0; 
+    text-orientation: upright;
+    color: #f5f5f5;
+    font-weight: bold;
+    background-color: #611720;
+    border-radius: 5px;
+    font-family: "Jersey20";
+    color: #FFFFFF;
+    font-size: 50px;
+    line-height:28px;
+    padding: 1%;
+  }
+  .title{
+    margin-top: 40px;
+    font-size: 30px;
+    padding: 5px;
+    white-space: pre;
+  }
+  .oneu::before {content: "→Stage 1";}
+  .twou::before {content: "→Stage 2";}
+  .threeu::before {content: "→Stage 3";}
+  .fouru::before {content: "→Stage 4";}
+
+  .oned::before {content: "←Stage 1";}
+  .twod::before {content: "←Stage 2";}
+  .threed::before {content: "←Stage 3";}
+  .fourd::before {content: "←Stage 4";}
+
+  .sub-header{
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    font-size: 25px;
+  }
+  .match-box {
+    display: flex;
+    flex-direction: row;
+    background: #f5f5f5;
+    border: 2px solid #f5f5f5;
+    border-radius: 10px;
+    padding: 6px;
+    width: fit-content;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  .r8{
+    margin-top: 25px;
+    margin-bottom:  50px;
+  }
+  .qf{
+    margin-top: 125px;
+    margin-bottom:  150px;
+  }
+  .sf{
+    flex-direction: column;
+    margin: 10px;
+    margin-top: 10px;
+  }
+  .f{
+    flex-direction: column;
+    margin: 0;
+  }
+  .team {
+    display: flex;
+    align-items: center;
+    background: #f5f5f5;
+    padding: 4px 6px;
+    border-radius: 6px;
+    margin: 2px 0;
+  }
+  .team img {
+    border-radius: 4px;
+    margin-right: 6px;
+    object-fit: cover;
+  }
+  .team-name {
+    font-size: 14px;
+    margin-right: auto;
+  }
+ 
+
+  /* Sizes by round */
+  .r16 img { width: 40px; height: 70px; }
+  .r8 img  { width: 60px; height: 107px; }
+  .qf img  { width: 70px; height: 127px; }
+  .sf img  { width: 160px; height: 285px; }
+  .f img   { width: 200px; height: 356px; }
+
+  /* Center Final Column */
+  .final-round {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  /* Добавьте это в ваш CSS */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+    overflow-x: auto;
+  }
+  .title,.round-title{
+    writing-mode: horizontal-tb; /* Возврат в горизонтальный режим (по умолчанию) */
+    text-orientation: mixed;
+  }
+
+  .bracket {
+    flex-direction: column;
+    gap: 5px;
+    width: max-content;
+    min-width: 100%;
+    padding-bottom: 20px;
+  }
+
+  .round {
+    flex-direction: row;
+    gap: 5px;
+    margin: 0;
+    width: auto;
+  }
+
+  .match-box {
+    flex-direction: column;
+    padding: 3px;
+  }
+
+  /* Размеры изображений для мобильных */
+  .r16 img { width: 30px; height: 50px; }
+  .r8 img  { width: 40px; height: 70px; }
+  .qf img  { width: 50px; height: 90px; }
+  .sf img  { width: 70px; height: 120px; }
+  .f img   { width: 90px; height: 160px; }
+
+  /* Отключение hover-эффектов на тач-устройствах */
+  .r16 img:hover, .r8 img:hover, .qf img:hover, 
+  .sf img:hover, .f img:hover { transform: none; }
+
+  /* Стили заголовков для мобильных */
+  .round-title, .title, .sub-title {
+    font-size: 16px;
+    line-height: 18px;
+    padding: 5px;
+    margin: 5px 0;
+  }
+
+  .sub-header {
+    font-size: 14px;
+  }
+
+  /* Корректировка отступов для раундов */
+  .r8, .qf, .sf {
+    margin: 1px 0 !important;
+  }
+
+  .r8{
+    margin-left: 3vh !important;
+    margin-right: 3.5vh !important;
+  }
+  .qf{
+    margin-left: 10vh !important;
+    margin-right: 10.5vh !important;
+  }
+  .sf{
+    margin-top: 10vh;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: row;
+    margin-left: 0 !important;
+  }
+  .f{
+    position: relative;
+    margin: 0vh auto 0;
+    flex-direction: row;
+    width: fit-content;
+  }
+
+  .oneu::before {content: "Tage 1\A Absenken";}
+  .twou::before {content: "Tage 2";}
+  .threeu::before {content: "Tage 3";}
+  .fouru::before {content: "Tage 4\AWer wird gewinnen?";}
+
+  .oned::before {content: "Tage 1\AHinaufgehen";}
+  .twod::before {content: "Tage 2";}
+  .threed::before {content: "Tage 3";}
+  .fourd::before {content: "Tage 4\AUnd das ist Ästhetik?";}    
+}
+
+@media (max-width: 381px) {
+  .r8{
+    margin-left: 4vh !important;
+    margin-right: 4vh !important;
+  }
+  .qf{
+    margin-left: 13vh !important;
+    margin-right: 13vh !important;
+  }
+  .sf{
+    margin-top: 10vh;
+
+  }
+}

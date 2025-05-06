@@ -1,0 +1,191 @@
+<title>Tournament table</title>
+<link href="\static\css\table.css" rel="stylesheet">
+
+{% extends "layout.html" %}
+{% block body %}
+<div class="bracket-container">
+        <div class="bracket">
+
+            <!-- 1/16 финала -->
+            <a class="title oneu"></a>
+            <div class="round">
+            {% for match in round_16_left %}
+            <div class="match-box r16">
+                <div class="team">
+                <img src="{{ match.team1_img }}" />
+                </div>
+                <div class="team">
+                <img src="{{ match.team2_img }}" />
+                </div>
+            </div>
+            {% endfor %}
+            </div>
+            <a class="title twou"></a>
+            
+            <!-- 1/8 финала -->
+            <div class="round">
+                {% for match in round_8_left %}
+                <div class="match-box r8">
+                <div class="team">
+                    <img src="{{ match.team1_img }}" />
+                </div>
+                <div class="team">
+                    <img src="{{ match.team2_img }}" />
+                </div>
+                </div>
+                {% endfor %}
+            </div>
+            <a class="title threeu"></a>
+            <!-- 1/4 финала -->
+            <div class="round">
+            {% for match in quarter_finals_left %}
+            <div class="match-box qf">
+                <div class="team">
+                <img src="{{ match.team1_img }}" />
+                </div>
+                <div class="team">
+                <img src="{{ match.team2_img }}" />
+                </div>
+            </div>
+            {% endfor %}
+            </div>
+            <a class="title fouru"></a>
+            <!-- 1/2 финала -->
+            <div class="round">     
+            {% for match in semi_finals_left %}
+            <div class="match-box sf">
+                <div class="team">
+                <img src="{{ match.team1_img }}" />
+                </div>
+                <div class="team">
+                <img src="{{ match.team2_img }}" />
+                </div>
+            </div>
+            {% endfor %}
+            </div>
+            <a class="round-title">FaceMash DAY X</a>
+            <!-- Финал -->
+            <div class="round final-round">
+            {% for match in final %}
+            <div class="match-box f">
+                <div class="team">
+                <img src="{{ match.team1_img }}" />
+                </div>
+                <h1>VERSUS</h1>
+                <div class="team">
+                <img src="{{ match.team2_img }}" />
+                </div>
+            </div>
+            {% endfor %}
+            </div>
+            <a class="round-title">FaceMash DAY X</a>
+            <!-- 1/2 финала -->
+            <div class="round">
+                {% for match in semi_finals_right %}
+                <div class="match-box sf">
+                <div class="team">
+                    <img src="{{ match.team1_img }}" />
+                </div>
+                <div class="team">
+                    <img src="{{ match.team2_img }}" />
+                </div>
+                </div>
+                {% endfor %}
+            </div>
+            <a class="title fourd"></a>
+            <!-- 1/4 финала -->
+            <div class="round">
+                {% for match in quarter_finals_right %}
+                <div class="match-box qf">
+                <div class="team">
+                    <img src="{{ match.team1_img }}" />
+                </div>
+                <div class="team">
+                    <img src="{{ match.team2_img }}" />
+                </div>
+                </div>
+                {% endfor %}
+            </div>
+            <a class="title threed"></a>
+            <!-- 1/8 финала -->
+            <div class="round">
+                {% for match in round_8_right %}
+                <div class="match-box r8">
+                <div class="team">
+                    <img src="{{ match.team1_img }}" />
+                </div>
+                <div class="team">
+                    <img src="{{ match.team2_img }}" />
+                </div>
+                </div>
+                {% endfor %}
+            </div>
+            <a class="title twod"></a>
+            <!-- 1/16 финала -->
+            <div class="round">
+                {% for match in round_16_right %}
+                <div class="match-box r16">
+                <div class="team">
+                    <img src="{{ match.team1_img }}" />
+                </div>
+                <div class="team">
+                    <img src="{{ match.team2_img }}" />
+                </div>
+                </div>
+                {% endfor %}
+            </div>
+            <a class="title oned"></a>
+        </div>
+  
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.innerWidth <= 768) {
+        const bracket = document.querySelector('.bracket');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+    
+        bracket.addEventListener('mousedown', (e) => {
+          isDown = true;
+          startX = e.pageX - bracket.offsetLeft;
+          scrollLeft = bracket.scrollLeft;
+        });
+    
+        bracket.addEventListener('mouseleave', () => {
+          isDown = false;
+        });
+    
+        bracket.addEventListener('mouseup', () => {
+          isDown = false;
+        });
+    
+        bracket.addEventListener('mousemove', (e) => {
+          if(!isDown) return;
+          e.preventDefault();
+          const x = e.pageX - bracket.offsetLeft;
+          const walk = (x - startX) * 2;
+          bracket.scrollLeft = scrollLeft - walk;
+        });
+    
+        // Добавляем обработчики для тач-устройств
+        bracket.addEventListener('touchstart', (e) => {
+          isDown = true;
+          startX = e.touches[0].pageX - bracket.offsetLeft;
+          scrollLeft = bracket.scrollLeft;
+        });
+    
+        bracket.addEventListener('touchend', () => {
+          isDown = false;
+        });
+    
+        bracket.addEventListener('touchmove', (e) => {
+          if(!isDown) return;
+          const x = e.touches[0].pageX - bracket.offsetLeft;
+          const walk = (x - startX) * 2;
+          bracket.scrollLeft = scrollLeft - walk;
+        });
+      }
+    });
+    </script>
+{% endblock %}

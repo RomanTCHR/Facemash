@@ -1,0 +1,59 @@
+<link href="\static\css\index.css" rel="stylesheet">
+{% extends "layout.html" %}
+{% block body %}
+        <header>
+            <div class="mainText">
+                <a class="FaceMash">FaceMash</a>
+            </div>
+            <div class="subText">
+                <p>Your Header</p>
+
+            </div>
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+            </div>
+        </header>
+        <main class="main">
+            <div>
+                <p>Were we let in for our looks?
+                     No. Will we be judged on them? Yes.
+                </p>
+                <h1>
+                    Who's Hotter? Click to Choose.
+                </h1>
+            </div>                
+            <div class="checkphoto">                
+
+                <form action="/vote" method="post">
+                    <input type="hidden" name="winner" value="{{ user1.id }}">
+                    <input type="hidden" name="loser" value="{{ user2.id }}">
+                    <button type="submit" class="person">
+                        <img src="{{ user1.image }}" alt="{{ user1.name }}">  
+                    </button>
+                </form>
+                
+                <p>OR</p>
+                
+                <form action="/vote" method="post">
+                    <input type="hidden" name="winner" value="{{ user2.id }}">
+                    <input type="hidden" name="loser" value="{{ user1.id }}">
+                    <button type="submit" class="person2">
+                        <img src="{{ user2.image }}" alt="{{ user2.name }}">   
+                    </button>
+                </form>
+
+                <h2 class="bottomText">
+                    Who's Hotter?<br> Click to Choose.
+                </h2>
+                
+            </div>
+            <form class="table" action="/table" method="post">
+                <a>Today is <span class="theday">{{ dayOfCompetion}}</span></br>Day of Competion</a>
+                <button type="submit" class="table-btn">Tournament Table</button>
+            </form>     
+        </main>
+        <footer class="footer">
+            
+            <p>Your footer</p>
+        </footer>
+{% endblock %}
