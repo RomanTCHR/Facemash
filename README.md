@@ -1,6 +1,7 @@
 # FaceMash
 
 Flask-based app where users vote who’s “hotter” between two images, using Elo ratings and a tournament bracket.
+The original version was coded by Zuck in 2003. This is the open-source version with modern design and additional functions, for example, table.
 
 ## Features
 
