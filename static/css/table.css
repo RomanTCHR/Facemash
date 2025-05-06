@@ -10,7 +10,7 @@
   .bracket-container {
     width: 100%;
     overflow-x: auto;
-    -webkit-overflow-scrolling: touch; /* Для плавного скролла на iOS */
+    -webkit-overflow-scrolling: touch; 
   }
   .bracket-container::-webkit-scrollbar {
     height: 15px;
@@ -125,29 +125,26 @@
     font-size: 14px;
     margin-right: auto;
   }
- 
-
-  /* Sizes by round */
   .r16 img { width: 40px; height: 70px; }
   .r8 img  { width: 60px; height: 107px; }
   .qf img  { width: 70px; height: 127px; }
   .sf img  { width: 160px; height: 285px; }
   .f img   { width: 200px; height: 356px; }
 
-  /* Center Final Column */
+  
   .final-round {
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
-  /* Добавьте это в ваш CSS */
+  
 @media (max-width: 768px) {
   body {
     padding: 10px;
     overflow-x: auto;
   }
   .title,.round-title{
-    writing-mode: horizontal-tb; /* Возврат в горизонтальный режим (по умолчанию) */
+    writing-mode: horizontal-tb; 
     text-orientation: mixed;
   }
 
@@ -171,18 +168,18 @@
     padding: 3px;
   }
 
-  /* Размеры изображений для мобильных */
+  
   .r16 img { width: 30px; height: 50px; }
   .r8 img  { width: 40px; height: 70px; }
   .qf img  { width: 50px; height: 90px; }
   .sf img  { width: 70px; height: 120px; }
   .f img   { width: 90px; height: 160px; }
 
-  /* Отключение hover-эффектов на тач-устройствах */
+  
   .r16 img:hover, .r8 img:hover, .qf img:hover, 
   .sf img:hover, .f img:hover { transform: none; }
 
-  /* Стили заголовков для мобильных */
+  
   .round-title, .title, .sub-title {
     font-size: 16px;
     line-height: 18px;
@@ -194,7 +191,7 @@
     font-size: 14px;
   }
 
-  /* Корректировка отступов для раундов */
+  
   .r8, .qf, .sf {
     margin: 1px 0 !important;
   }
@@ -222,15 +219,15 @@
     width: fit-content;
   }
 
-  .oneu::before {content: "Tage 1\A Absenken";}
-  .twou::before {content: "Tage 2";}
-  .threeu::before {content: "Tage 3";}
-  .fouru::before {content: "Tage 4\AWer wird gewinnen?";}
+  .oneu::before {content: "Stage 1";}
+  .twou::before {content: "Stage 2";}
+  .threeu::before {content: "Stage 3";}
+  .fouru::before {content: "Stage 4";}
 
-  .oned::before {content: "Tage 1\AHinaufgehen";}
-  .twod::before {content: "Tage 2";}
-  .threed::before {content: "Tage 3";}
-  .fourd::before {content: "Tage 4\AUnd das ist Ästhetik?";}    
+  .oned::before {content: "Stage 1";}
+  .twod::before {content: "Stage 2";}
+  .threed::before {content: "Stage 3";}
+  .fourd::before {content: "Stage 4";}    
 }
 
 @media (max-width: 381px) {
