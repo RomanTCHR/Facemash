@@ -44,12 +44,12 @@ python main.py
 ## 🗂 Project Structure
 
 ```
-├── main.py
+├── app.py
 ├── facemash.db
 ├── bracket_data.py
 ├── static/
 │   ├── playerimages/
-│   ├── uploads/
+│   ├── uploads/ cooming soon
 │   ├── css/
 │   └── images/
 ├── templates/
