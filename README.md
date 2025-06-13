@@ -17,7 +17,7 @@ The original version was coded by Zuck in 2003. This is the open-source version 
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/facemash-clone.git
+git clone https://github.com/RomanTCHR/facemash-clone.git
 cd facemash-clone
 ```
 
